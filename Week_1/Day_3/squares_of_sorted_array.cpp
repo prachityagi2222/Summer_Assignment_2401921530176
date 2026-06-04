@@ -1,13 +1,26 @@
 #include <bits/stdc++.h>
 using namespace std;
-/*time - O(N log N)
+/*time - O(N)
 space - O(N)*/
 vector<int> sortedSquares(vector<int>& nums) {
-    vector<int> result;
-    for (int num : nums) {
-        result.push_back(num * num); // square each number
+    int n = nums.size();
+    vector<int> result(n);
+    int left = 0, right = n - 1;
+    int pos = n - 1; // fill result from the end
+
+    while (left <= right) {
+        int leftSquare = nums[left] * nums[left];
+        int rightSquare = nums[right] * nums[right];
+
+        if (leftSquare > rightSquare) {
+            result[pos] = leftSquare;
+            left++;
+        } else {
+            result[pos] = rightSquare;
+            right--;
+        }
+        pos--;
     }
-    sort(result.begin(), result.end()); // sort the squared values
     return result;
 }
 
