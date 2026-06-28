@@ -1,5 +1,6 @@
-// File: Main.java (or any name, but should match the public class)
+package oops;
 
+// Rest of your code here...
 // ====== Problem 1: Interface and Implementation ======
 interface Test {
     int square(int num);
